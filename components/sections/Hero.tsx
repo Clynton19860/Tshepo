@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ParticleBackground } from "@/components/effects/ParticleBackground";
+import Galaxy from "@/components/effects/Galaxy";
 import { GradientBackground } from "@/components/effects/GradientBackground";
 import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
 import { useEffect, useState } from "react";
@@ -45,7 +45,6 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <GradientBackground />
-      <ParticleBackground />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center space-y-8">
