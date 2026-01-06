@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MouseIcon } from "@/components/ui/MouseIcon";
 import Galaxy from "@/components/effects/Galaxy";
 import { GradientBackground } from "@/components/effects/GradientBackground";
-import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
+import { fadeInUp, slideInLeft } from "@/lib/animations";
 import { useEffect, useState } from "react";
 import { personalInfo } from "@/lib/data";
 
@@ -56,10 +57,9 @@ export function Hero() {
             className="space-y-4"
           >
             <motion.h1
-              className="text-6xl md:text-8xl lg:text-9xl font-display font-bold gradient-text"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-bold gradient-text px-4"
               style={{
                 textShadow: "0 0 40px rgba(0, 217, 255, 0.5)",
-                transform: "perspective(1000px) rotateX(5deg)",
               }}
             >
               {personalInfo.name}
@@ -68,11 +68,11 @@ export function Hero() {
             {/* Typing Effect */}
             <motion.div
               variants={slideInLeft}
-              className="h-16 flex items-center justify-center"
+              className="h-12 sm:h-16 flex items-center justify-center px-4"
             >
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-semibold text-white">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-semibold text-white text-center">
                 I&apos;m a{" "}
-                <span className="gradient-text inline-block min-w-[300px] md:min-w-[400px]">
+                <span className="gradient-text inline-block min-w-[200px] sm:min-w-[250px] md:min-w-[300px] lg:min-w-[400px]">
                   {displayText}
                   <span className="animate-pulse">|</span>
                 </span>
@@ -86,7 +86,7 @@ export function Hero() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.3 }}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl"
+            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl px-4 text-center"
           >
             {personalInfo.bio}
           </motion.p>
@@ -97,53 +97,35 @@ export function Hero() {
             animate="visible"
             variants={fadeInUp}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 px-4 w-full sm:w-auto"
           >
             <Button
               size="lg"
-              className="group relative overflow-hidden bg-gradient-futuristic hover:scale-105 transition-transform"
+              className="group relative overflow-hidden bg-gradient-futuristic hover:scale-105 transition-transform w-full sm:w-auto"
+              onClick={scrollToNext}
             >
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 View My Work
-                <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
               </span>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="group glass hover:bg-primary/10 hover:border-primary transition-all"
+              className="group glass hover:bg-primary/10 hover:border-primary transition-all w-full sm:w-auto"
               onClick={() => window.open(personalInfo.resume, "_blank")}
             >
-              <span className="flex items-center gap-2">
+              <span className="flex items-center justify-center gap-2">
                 <Download className="w-4 h-4" />
                 Download Resume
               </span>
             </Button>
           </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.7 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-            onClick={scrollToNext}
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="flex flex-col items-center gap-2 text-primary"
-            >
-              <span className="text-sm">Scroll</span>
-              <ArrowDown className="w-6 h-6" />
-            </motion.div>
-          </motion.div>
         </div>
       </div>
 
-      {/* Floating Geometric Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Floating Geometric Shapes - Hidden on mobile */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         <motion.div
           animate={{
             rotate: 360,

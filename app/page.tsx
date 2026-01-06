@@ -5,11 +5,13 @@ import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
+import { MobileMenuWidget } from "@/components/MobileMenuWidget";
+import { ScrollMouse } from "@/components/ScrollMouse";
 import Galaxy from "@/components/effects/Galaxy";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative overflow-x-hidden">
       {/* Global Galaxy Background */}
       <div className="fixed inset-0 -z-10">
         <Galaxy
@@ -22,6 +24,8 @@ export default function Home() {
         />
       </div>
       <Navigation />
+      <MobileMenuWidget />
+      <ScrollMouse />
       <div id="home">
         <Hero />
       </div>

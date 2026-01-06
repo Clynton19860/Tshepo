@@ -16,14 +16,14 @@ const iconMap: Record<string, typeof Code> = {
 
 export function About() {
   return (
-    <section id="about" className="relative py-20 md:py-32 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-20 md:py-32 overflow-hidden">
       <div className="container mx-auto px-4">
         <StaggerContainer>
-          <FadeInView className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-display font-bold gradient-text mb-4">
+          <FadeInView className="text-center mb-12 md:mb-16 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold gradient-text mb-4">
               About Me
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
               Passionate developer with a love for creating innovative solutions
             </p>
           </FadeInView>
